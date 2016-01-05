@@ -10,7 +10,8 @@ RUN curl -k -L -o /tmp/consul-template.zip https://releases.hashicorp.com/consul
   cp consul-template /usr/local/bin/consul-template && \
   chmod a+x /usr/local/bin/consul-template
 
-# 2 files need to be mounted in /tmp/haproxy.json and the haproxy.ctmpl templatefile
+# 2 files need to be mounted:
+# /tmp/consule-template.conf and the haproxy.ctmpl templatefile according to its specification in consule-template.conf
 
 ENTRYPOINT ["consul-template", "-config=/tmp/consule-template.conf"]
 CMD ["-consul=consul.service.consul:8500"]
