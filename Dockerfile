@@ -10,4 +10,5 @@ RUN curl -k -L -o /tmp/consul-template.zip https://releases.hashicorp.com/consul
   cp consul-template /usr/local/bin/consul-template && \
   chmod a+x /usr/local/bin/consul-template
 
-
+ENTRYPOINT ["consul-template", "-config=/tmp/haproxy.json"]
+CMD ["-consul=consul.service.consul:8500"]
